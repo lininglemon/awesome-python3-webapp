@@ -5,7 +5,7 @@ import mysql.connector
 
 async def test():
 	await orm.create_pool(loop=loop,host='127.0.0.1', port=3306, user='www-data',password='www-data',db='awesome')
-	u=User(name='Test',email='test@example.com',passwd='1234567890',image='about:blank',id='110')
+	u=User(name='Test2',email='test2@example.com',passwd='1234567890',image='about:blank',id='111')
 	
 	await u.save()
 	
