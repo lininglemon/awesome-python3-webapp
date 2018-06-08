@@ -15,7 +15,8 @@ class Dict(dict):
 	def __init__(self,names=(),values=(),**kw):
 		super(Dict,self).__init__(**kw)
 		for k,v in zip(names,values):
-			self[k]=values
+			self[k]=v
+			
 	def __getattr__(self,key):
 		try:
 			return self[key]
@@ -34,9 +35,9 @@ def merge(defaults,override):
 			else:
 				r[k] = override[k]
 				
-		 else:
+		else:
 		  r[k] = v
-	return raise
+	return r
 
 def toDict(d):
 	D = Dict()

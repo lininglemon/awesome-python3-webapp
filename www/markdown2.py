@@ -2408,11 +2408,7 @@ class Markdown(object):
 
                     self.footnote_ids.append(normed_id)
 
-                    result = '<sup class="footnote-ref" id="fnref-%s">' \
-
-                             '<a href="#fn-%s">%s</a></sup>' \
-
-                             % (normed_id, normed_id, len(self.footnote_ids))
+                    result = '<sup class="footnote-ref" id="fnref-%s"><a href="#fn-%s">%s</a></sup>' % (normed_id, normed_id, len(self.footnote_ids))
 
                     text = text[:start_idx] + result + text[p+1:]
 
@@ -2458,9 +2454,7 @@ class Markdown(object):
 
                     # with italics/bold.
 
-                    url = url.replace('*', self._escape_table['*']) \
-
-                             .replace('_', self._escape_table['_'])
+                    url = url.replace('*', self._escape_table['*']).replace('_', self._escape_table['_'])
 
                     if title:
 
@@ -2480,9 +2474,7 @@ class Markdown(object):
 
                         img_class_str = self._html_class_str_from_tag("img")
 
-                        result = '<img src="%s" alt="%s"%s%s%s' \
-
-                            % (url.replace('"', '&quot;'),
+                        result = '<img src="%s" alt="%s"%s%s%s'  % (url.replace('"', '&quot;'),
 
                                _xml_escape_attr(link_text),
 
@@ -2556,9 +2548,7 @@ class Markdown(object):
 
                         # with italics/bold.
 
-                        url = url.replace('*', self._escape_table['*']) \
-
-                                 .replace('_', self._escape_table['_'])
+                        url = url.replace('*', self._escape_table['*']) .replace('_', self._escape_table['_'])
 
                         title = self.titles.get(link_id)
 
@@ -2566,11 +2556,7 @@ class Markdown(object):
 
                             before = title
 
-                            title = _xml_escape_attr(title) \
-
-                                .replace('*', self._escape_table['*']) \
-
-                                .replace('_', self._escape_table['_'])
+                            title = _xml_escape_attr(title).replace('*', self._escape_table['*']).replace('_', self._escape_table['_'])
 
                             title_str = ' title="%s"' % title
 
@@ -2582,9 +2568,7 @@ class Markdown(object):
 
                             img_class_str = self._html_class_str_from_tag("img")
 
-                            result = '<img src="%s" alt="%s"%s%s%s' \
-
-                                % (url.replace('"', '&quot;'),
+                            result = '<img src="%s" alt="%s"%s%s%s'  % (url.replace('"', '&quot;'),
 
                                    link_text.replace('"', '&quot;'),
 
@@ -2600,9 +2584,7 @@ class Markdown(object):
 
                         elif start_idx >= anchor_allowed_pos:
 
-                            result = '<a href="%s"%s>%s</a>' \
-
-                                % (url, title_str, link_text)
+                            result = '<a href="%s"%s>%s</a>' % (url, title_str, link_text)
 
                             result_head = '<a href="%s"%s>' % (url, title_str)
 
@@ -3754,9 +3736,7 @@ class Markdown(object):
 
                 if footer[-1].endswith("</p>"):
 
-                    footer[-1] = footer[-1][:-len("</p>")] \
-
-                        + '&#160;' + backlink + "</p>"
+                    footer[-1] = footer[-1][:-len("</p>")] + '&#160;' + backlink + "</p>"
 
                 else:
 
@@ -3906,9 +3886,7 @@ class Markdown(object):
 
         # Strip the mailto: from the visible part.
 
-        addr = '<a href="%s">%s</a>' \
-
-               % (''.join(chars), ''.join(chars[7:]))
+        addr = '<a href="%s">%s</a>'   % (''.join(chars), ''.join(chars[7:]))
 
         return addr
 
